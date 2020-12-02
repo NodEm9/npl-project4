@@ -11,14 +11,14 @@ app.use(cors());
 
 
 
-app.use(express.static('./src/client/views'));
+app.use(express.static('dist'));
 
 
 const port = process.env.PORT || 8000;
 
 
-app.get('/', (req, res) => {
-          res.sendFile('/index.html')
+app.get('/', (req, res) => {   
+          res.sendFile('dist/index.html')    
           console.log()
 });
   
