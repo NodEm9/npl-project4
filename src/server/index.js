@@ -1,29 +1,28 @@
 const express = require('express');
 const cors = require('cors');
-const mockAPIResponse = require('./mockAPI');
+const mockAPIResponse = require('./mockAPI.js');
 
 
 const app = express();
 
-//Middleware
+//Middleware 
 app.use(cors());
 // app.use(express.json());
-
 
 
 app.use(express.static('dist'));
 
 
-const port = process.env.PORT || 8000;
-
-
-app.get('/', (req, res) => {   
-          res.sendFile('dist/index.html')    
-          console.log()
-});
+const port = process.env.PORT || 8001;
   
 
-app.listen(port, () => {
+app.get('/',  function (req, res) {    
+          res.sendFile('dist/index.html')          
+          console.log() 
+});   
+  
+
+app.listen(port, () => {  
           console.log(`Server listening on port: ${port}`); 
 });                  
 
