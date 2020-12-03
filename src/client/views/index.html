@@ -5,28 +5,27 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Natural Language Processing</title>
 
-          <link rel="stylesheet" href="">
+          <!-- <link rel="stylesheet" href="../styles/base.css"> -->
 
 </head>
 <body>
           <header>
                     <div class="appName">NLP</div>
                     <div class="navigation">Navigation</div>
-          </header>
-
+          </header>    
           <main>
-              <form onsubmit="return handleSubmit(event)">
-                    <label for="wordInput">Type your search</label><br>
+              <form onsubmit="return Client.handleSubmit(event)">
+                    <label for="name">Type your search</label><br>
                     <input type="text" id="name" name="input" onblur="onBlur"  placeholder="Enter search"><br>
-                    <input type="submit"  name="" value="submit" onclick="return  handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                    <input type="submit" id="button" name="" value="submit" onclick="return  Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
               </form>
+ 
+          </main> 
 
-          </main>
-
-          <div class="info">
-          <div><strong>Results:</strong></div>
-              <div class="results"></div>
-          </div>
+          <section id="info">
+              <strong>Results:</strong>
+              <div id="results"></div>
+          </section>
           <footer>
                     MY Footer here
           </footer>
