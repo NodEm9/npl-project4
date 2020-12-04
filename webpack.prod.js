@@ -21,11 +21,11 @@ module.exports = {
                                 
                     plugins: ['@babel/plugin-transform-runtime']
                   }
-          }
+          }     
          },
           {
-                      test: /\.css$/i,
-                      use: [MiniCssExtractPlugin.loader, 'css-loader'],
+                      test: /\.scss$/i,
+                      use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
           },
           {
                     test: /\.html$/i,
