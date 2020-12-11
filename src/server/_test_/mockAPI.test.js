@@ -20,11 +20,9 @@ describe('Filter function', () => {
 
 describe('api request header call', () => {
           test('/', () => {
-           ('dist/index.html')
+                    const request = 'dist/index.html';
 
-                    console.log('this get request works just fine')
-
-                    expect('./index.html').toEqual('./index.html');
+                    expect(request).toEqual('dist/index.html');
           })
 
           
