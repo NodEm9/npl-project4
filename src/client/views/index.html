@@ -4,30 +4,39 @@
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Natural Language Processing</title>
-
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
           <!-- <link rel="stylesheet" href="../styles/base.css"> -->
 
 </head>
 <body>
           <header>
-                    <div class="appName">NLP</div>
-                    <div class="navigation">Navigation</div>
+                    <div class="appName">Evaluating News Articles With Natural Language Processing</div>
+                    <!-- <div class="navigation">Navigation</div> -->
           </header>     
           <main>
-              <form onsubmit="return Client.handleSubmit(event)">
-                    <label for="name">Type your search</label><br>
-                    <input type="text" id="name" name="input" onblur="onBlur"  placeholder="Enter search"><br>
-                    <input type="submit" id="button" name="" value="submit" onclick="return  Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
-              </form>
- 
-          </main> 
-
+            <section>
+              <div>
+                  <div>
+                  <label for="inputText"> Enter Text:</label>
+                </div>
+                  <textarea name="" id="analyseText" cols="80" rows="15"></textarea>
+              </div>
+            </section>
+            <span><i class="fas fa-arrow-right"></i></span>
+            <span><i class="fab fa-arrow-left"></i></span>
           <section id="info">
-              <strong>Results:</strong>
-              <div id="results"></div>
+              <div><strong>Results:</strong></div>
+              <!-- <div id="results"></div> -->
+              <textarea name="" id="results" cols="80" rows="15"></textarea>
           </section>
+        </main>
+        <div class="button">
+            <input type="submit" id="generate" name="" value="Submit">
+          </div> 
           <footer>  
-                    MY Footer here
+              <div class="page-footer">
+                MY Footer here
+              </div>
           </footer>
 
          </body>
