@@ -12,11 +12,33 @@ main {
         section {
             margin: auto;
             grid-area: span 2;
-       
+            /* Create three equal columns that floats next to each other */
              textarea {
                  min-height: 50%;
                  grid-area:  span 2;
              }
           }
+          .column {
+            float: left;
+            width: 33.33%;
+        }
+        .column, span {
+           align-items: flex-start;
+        }
+         .model {
+            align-items: right;
+         }
+         #en {
+            width: 90px;
+         }
+        
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+       
+        
           
 } 
