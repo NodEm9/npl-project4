@@ -49,14 +49,14 @@ body {
           align-items: center;
           justify-content: center;
           font-size: 20px;
-          // padding-left: 15%;
  }
  .container {
           display: grid;
-          grid-area: span 2;
-          min-width: 100%;
+          grid-area: span 12;
+          min-width: 50vw;
+          min-height: 100vh;
           font-weight: bold;
-          padding: 10px 0px 0px 20px;
+          // padding: 10px 0px 10px 20px;
           font-size: 50px;
           font-size: large;
           margin-bottom: 1em;
@@ -67,7 +67,7 @@ body {
              font-size: 50px;
              font-size: large;
              margin-bottom: 1em;
-             padding: 2%;
+            //  padding: 2px 5px 5px 2px;
 
     } 
     header {
@@ -78,18 +78,31 @@ body {
               grid-area: span 2;
 
       textarea {
-          min-height: 50%;
+          min-height: 50vh;
           grid-area:  span 2;
       }
     }
     .column {
       float: left;
+      width: 19%;
   }
+  .column, span {
+    align-items: flex-end;
+    // margin-left: 3em;
+ }
   /* Clear floats after the columns */
 .row:after {
       content: "";
       display: table;
       clear: both;
+}
+.model {
+  align-items: right;
+  margin-left: 3em;
+}
+.lang {
+  width: 1px;
+  // margin-right: em;
 }
 
     #generate {
@@ -104,5 +117,11 @@ body {
             padding: 2em;
             
   }
+  input:invalid {
+    border: 2px solid red;
+ }
+ input:valid {
+    border: 2px solid green;
+ }
 
 } 
