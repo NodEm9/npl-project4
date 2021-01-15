@@ -2,7 +2,6 @@ main {
 
           display: grid;
           border: none;
-          min-height: 100%;
           padding: 20px 15px 15px 20px;
           background: $primary-color;
           color: #fff;
@@ -11,25 +10,28 @@ main {
 
         section {
             margin: auto;
-            grid-area: span 2;
+            grid-area: span 12;
             /* Create three equal columns that floats next to each other */
              textarea {
-                 min-height: 50%;
+                 min-height: 100%;
                  grid-area:  span 2;
              }
           }
           .column {
             float: left;
-            width: 33.33%;
+            width: 29%;
         }
         .column, span {
            align-items: flex-start;
+           margin-right: 1em;
         }
          .model {
             align-items: right;
+            margin-left: 5em;
          }
-         #en {
-            width: 90px;
+         .lang {
+            min-width: 1px;
+            margin-right: 10em;
          }
         
         /* Clear floats after the columns */
@@ -38,7 +40,12 @@ main {
             display: table;
             clear: both;
         }
-       
+       input:invalid {
+          border: 2px solid red;
+       }
+       input:valid {
+          border: 2px solid black;
+       }
         
           
 } 
