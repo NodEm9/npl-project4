@@ -10,7 +10,6 @@ body {
           font-family: $font-family;
           align-items: center;
           justify-content: center;
-          // padding: 5px 0px 0px 20px;
           margin: auto;         
 }
 .container {
@@ -38,6 +37,7 @@ body {
 .button {
           margin-top: 2em;
 }
+
 
 @media screen and ( min-width: 40em ) {
     body {
@@ -82,6 +82,16 @@ body {
           grid-area:  span 2;
       }
     }
+    .column {
+      float: left;
+  }
+  /* Clear floats after the columns */
+.row:after {
+      content: "";
+      display: table;
+      clear: both;
+}
+
     #generate {
               grid-area: span 12;
               margin-bottom: 12em;
@@ -90,7 +100,7 @@ body {
               margin-bottom: 1px;
     }
   footer {
-            margin-bottom: 2em;
+            // margin-bottom: 2em;
             grid-area: 12;
             padding: 2em;
             
