@@ -1,8 +1,12 @@
 
 header {
-          column-count: 2; 
           font-size: large;
           color: blue;
-          margin-bottom: 2em;
+          margin: 0 auto;
+          font-weight: 700;
+          font: bold;
+          margin-bottom: 1em;
+          margin-top: 1em;
+          grid-area: span 1;
 
 }
