@@ -4,40 +4,76 @@
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Natural Language Processing</title>
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
           <!-- <link rel="stylesheet" href="../styles/base.css"> -->
 
 </head>
 <body>
+    <div class="container">    
           <header>
                     <div class="appName">Evaluating News Articles With Natural Language Processing</div>
                     <!-- <div class="navigation">Navigation</div> -->
-          </header>     
+                    <div>
+                        <span class="errorMsg"></span>
+                    </div>
+          </header>   
           <main>
             <section>
               <div>
                   <div>
                   <label for="inputText"> Enter Text:</label>
                 </div>
-                  <textarea name="" id="analyseText" cols="80" rows="15"></textarea>
+                  <textarea name="" id="text" data-text cols="80" rows="15"></textarea>
               </div>
             </section>
-            <span><i class="fas fa-arrow-right"></i></span>
-            <span><i class="fab fa-arrow-left"></i></span>
+            <section>
+              <article>
+                <div class="row">
+                  <div class="column">
+                   <p class="text textContent"></p>
+                   <p class="score_tag"></p>
+                   <p class="agreement"></p>
+                   <p class="subjective"></p>
+                   <p class="confidence"></p>
+                   <p class="irony"></p>
+                  </div>
+                </div>
+              </article>
+                <!-- <div class="row">
+                    <div class="column"> 
+                        <div><span><i class="fas fa-arrow-right"></i></span></div>
+                        <div><span><i class="fas fa-arrow-left"></i></span></div>
+                    </div>
+                    <div class="column">
+                        <div class="lang text-lang">
+                            <label for="lang">Language:</label>
+                            <input type="text" name="en" data-en id="en">
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="model">
+                            <label for="model">Model:</label>
+                            <select name="" id="model">
+                                <option value="model" id="newsArticles">newsArticles </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+        </section>
           <section id="info">
               <div><strong>Results:</strong></div>
-              <!-- <div id="results"></div> -->
-              <textarea name="" id="results" cols="80" rows="15"></textarea>
-          </section>
-        </main>
+              <textarea name="" id="results" cols="80" rows="15"></textarea>-->
+          </section> 
+       
         <div class="button">
             <input type="submit" id="generate" name="" value="Submit">
           </div> 
+        </main>
           <footer>  
               <div class="page-footer">
                 MY Footer here
               </div>
           </footer>
-
-         </body>
+        </div>
+          <script src="https://kit.fontawesome.com/f9f9d2cd10.js" crossorigin="anonymous"></script>
+    </body>
 </html>
