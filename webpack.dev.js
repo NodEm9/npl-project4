@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const TerserPlugin = require("terser-webpack-plugin");
 
 
 
@@ -21,6 +21,10 @@ module.exports = {
             port: 9000,
             hot: true
           },
+          optimization: {
+            minimize: true,
+            minimizer: [new TerserPlugin()],
+          },
  module: {
    rules: [
 
@@ -36,31 +40,29 @@ module.exports = {
           }
          },
           {
-                      test: /\.scss$/i,
-                      use: ['style-loader', 'css-loader', 'sass-loader'],
+              test: /\.scss$/i,
+              use: ['style-loader', 'css-loader', 'sass-loader'],
           },
           {
-            test: /\.html$/i,
-            loader: 'html-loader',
+             test: /\.html$/i,
+             loader: 'html-loader',
           },
-         
-        ]
-       
+         ]
       },
       plugins: [
                 new CleanWebpackPlugin({
                      // Simulate the removal of files
-                dry: true,
-                // Write Logs to Console
-                verbose: true,
-                // Automatically remove all unused webpack assets on rebuild
-                cleanStaleWebpackAssets: true,
-                protectWebpackAssets: false
+                    dry: true,
+                    // Write Logs to Console
+                    verbose: true,
+                    // Automatically remove all unused webpack assets on rebuild
+                    cleanStaleWebpackAssets: true,
+                    protectWebpackAssets: false
                 }),
                 new MiniCssExtractPlugin({}),
                 new HtmlWebpackPlugin({
-                              template: './src/client/views/index.html',
-                              filename: './index.html'
+                    template: './src/client/views/index.html',
+                    filename: './index.html'
           }),
        ],
        
