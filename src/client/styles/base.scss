@@ -6,7 +6,7 @@ body {
           display: grid;
           grid-template-columns: auto auto 12fr auto;
           grid-template-areas: 50em ;
-          min-height: 100vh;
+          min-height: 100%;
           font-family: $font-family;
           align-items: center;
           justify-content: center;
@@ -35,7 +35,7 @@ body {
           align-items: center;
 }
 .button {
-          margin-top: 2em;
+          margin-top: 1em;
 }
 
 
@@ -56,19 +56,15 @@ body {
           min-width: 50vw;
           min-height: 100vh;
           font-weight: bold;
-          // padding: 10px 0px 10px 20px;
           font-size: 50px;
           font-size: large;
           margin-bottom: 1em;
 }
    main {
-             grid-area:  span 2 ;
-             min-height: 100vh;
-             font-size: 50px;
-             font-size: large;
-             margin-bottom: 1em;
-            //  padding: 2px 5px 5px 2px;
-
+          grid-area:  span 2 ;
+          min-height: 100vh;
+          font-size: 50px;
+          font-size: large;
     } 
     header {
             margin-bottom: 1em;
@@ -78,17 +74,17 @@ body {
               grid-area: span 2;
 
       textarea {
-          min-height: 50vh;
+          min-height: 20vh;
           grid-area:  span 2;
       }
     }
     .column {
       float: left;
       width: 19%;
+      margin-top: 5em;
   }
   .column, span {
     align-items: flex-end;
-    // margin-left: 3em;
  }
   /* Clear floats after the columns */
 .row:after {
@@ -102,15 +98,14 @@ body {
 }
 .lang {
   width: 1px;
-  // margin-right: em;
 }
 
-    #generate {
-              grid-area: span 12;
-              margin-bottom: 12em;
-              justify-content: center;
-              margin-top: 1px;
-              margin-bottom: 1px;
+#generate {
+    grid-area: span 12;
+    margin-bottom: 12em;
+    justify-content: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
     }
   footer {
             grid-area: 12;
