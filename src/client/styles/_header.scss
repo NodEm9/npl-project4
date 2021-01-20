@@ -1,7 +1,6 @@
 
 header {
           font-size: large;
-          color: blue;
           margin: 0 auto;
           font-weight: 700;
           font: bold;
@@ -10,3 +9,6 @@ header {
           grid-area: span 1;
 
 }
+#panel, .errorMsg{
+          color: #ffffff;
+   }
