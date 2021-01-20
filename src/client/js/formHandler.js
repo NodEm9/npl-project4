@@ -49,15 +49,13 @@ const postData = async (url='', data = {}) => {
             credentials: 'same-origin',
             headers: {
                 'Content-Type': 'application/json',
-                // 'Accept': 'application/json'
-                // 'Content-Type': 'text/plain'
             }, 
             body: JSON.stringify({data: data}),// the Content-Type matches the body
            
         })
         try {
             const newData = await resp.json()
-            // console.log(newData)
+            console.log(newData)
             return newData
         } catch (err) {
             console.log(err.message)
