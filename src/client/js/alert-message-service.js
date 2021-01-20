@@ -8,8 +8,8 @@ panel.setAttribute('class', 'msgBox');
 html.appendChild(panel);
 
 const msg = document.createElement('p');
-msg.textContent = msgText;
-panel.appendChild(msg);   
+msg.textContent = msgText;      
+panel.appendChild(msg);    
 
 const btn = document.getElementById('generate');
 
