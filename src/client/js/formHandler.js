@@ -12,50 +12,56 @@ document.getElementById('generate').addEventListener('click', handleSubmit);
     if(!isValidUrl(url)) {
                 document.querySelector('.errorMsg').innerHTML = displayMessage('Invalid Url: please insert a valid Url');
             console.log('Invalid Url')   
-        }else{
-            document.querySelector('.errorMsg').innerHTML = displayMessage('URL is valid');
-            console.log('URL is valid')
-      }
-         
-     fetch('http://localhost:8001/analyse', {
+    }else{
+     fetch('http://localhost:8001/analyse/', {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
-            'Content-Type': 'application/json', 
-            // 'Content-Type': 'text/plain'
-
+            // 'Content-Type': 'application/json', 
+            'Content-Type': 'text/plain'
         }, 
-        body: JSON.stringify({url: url}),// the Content-Type matches the body
+        body: url,// the Content-Type matches the body
          
-     })
-    .then(data => {
-            console.log(data)
-            // document.querySelector('.score_tag').innerHTML = `score_tag: ${score_tag(data.score_tag)}`;
-            // document.querySelector('.subjectivity').innerHTML = `subjectivity: ${subjectivity(data.subjectivity)}`;
-            // document.querySelector('.agreement').innerHTML = `agreement: ${agreement(data.agreement)}`
-            // document.querySelector('.confidence').innerHTML = `confidence: ${confidence(data.confidence)}`
-            // document.querySelector('.irony').innerHTML = `irony: ${irony(data.irony)}`
-        postData('', {score_tag: data['score_tag'], agreement: data['agreement'],
-            subjectivity: data['subjectivity'], confidence: data['confidence'], irony: data['irony'],
-          }).then(updateDisplay())
-          return data
+     }).then(res => res.text())
+    .then(text => {
+            console.log(text)
+            document.querySelector('.score_tag').innerHTML = `score_tag: ${score_tag(text.score_tag)}`;
+            document.querySelector('.subjectivity').innerHTML = `subjectivity: ${subjectivity(text.subjectivity)}`;
+            document.querySelector('.agreement').innerHTML = `agreement: ${agreement(text.agreement)}`
+            document.querySelector('.confidence').innerHTML = `confidence: ${confidence(text.confidence)}`
+            document.querySelector('.irony').innerHTML = `irony: ${irony(text.irony)}`
+          return text
         })
-}
     
-const postData = async (url='', data = {}) => {
+        document.querySelector('.errorMsg').innerHTML = displayMessage('URL is valid');
+        console.log('URL is valid')
+  }
+
+        fetch('http:/localhost:8001/all/')
+        .then(res => res.text())
+        .then(text => {
+            postData('', {score_tag: text['score_tag'], agreement: text['agreement'],
+            subjectivity: text['subjectivity'], confidence: text['confidence'], irony: text['irony'],
+          }).then(updateDisplay())
+          return text
+        })        
+    
+}
+  
+const postData = async (url ='', data = {}) => {
         console.log(data)
         const resp = await fetch(url, {  
             method: 'POST',
             credentials: 'same-origin',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'text/plain',
             }, 
-            body: JSON.stringify({data: data}),// the Content-Type matches the body
+            body: data,// the Content-Type matches the body type
            
         })
         try {
-            const newData = await resp.json()
-            console.log(newData)
+            const newData = await resp.text()
+            // console.log(newData)
             return newData
         } catch (err) {
             console.log(err.message)
@@ -63,72 +69,73 @@ const postData = async (url='', data = {}) => {
 }
 
 const updateDisplay = async () => {
-    const response = await  fetch('/all');
+    const response = await  fetch('/all/');
     try {
-        const allData = await response.json();
-        const score_tag = document.querySelector('.score_tag');
-        const agreement = document.querySelector('.agreement');
-        const subjectivity = document.querySelector('.subjectivity');
-        const confidence = document.querySelector('.confidence');
-        const irony = document.querySelector('.irony');
+        const response = await response.text();
 
-        score_tag.textContent = allData.score_tag;
-        agreement.textContent = allData.agreement;
-        subjectivity.textContent = allData.subjectivity;
-        confidence.textContent = allData.confidence;
-        irony.textContent = allData.irony;
+        // const score_tag = document.querySelector('.score_tag');
+        // const agreement = document.querySelector('.agreement');
+        // const subjectivity = document.querySelector('.subjectivity');
+        // const confidence = document.querySelector('.confidence');
+        // const irony = document.querySelector('.irony');
+
+        // score_tag.textContent = allData.score_tag;
+        // agreement.textContent = allData.agreement;
+        // subjectivity.textContent = allData.subjectivity;
+        // confidence.textContent = allData.confidence;
+        // irony.textContent = allData.irony;
 
     } catch (error) {
         console.log(error.message);
-    }
+    }  
 }
 
-    //   const score_tag = (score_tag) => {
-    //     if (score_tag === "P+" || score_tag === "P") {
-    //       return "Positive";
-    //     } else if (score_tag === "N+" || score_tag === "N") {
-    //       return "Negative";
-    //     } else if (score_tag === "NEU") {
-    //       return "Neutral";
-    //     } else {
-    //       return "Non Sentimental";
-    //     }
-    //   };
+      const score_tag = (score_tag) => {
+        if (score_tag === "P+" || score_tag === "P") {
+          return "Positive";
+        } else if (score_tag === "N+" || score_tag === "N") {
+          return "Negative";
+        } else if (score_tag === "NEU") {
+          return "Neutral";
+        } else {
+          return "Non Sentimental";
+        }
+      };
 
-    //   //Check if there is an agreement
-    //   const agreement = (agreement) => {
-    //       if(agreement === "samePolarity") {
-    //             return "AGREEMENT"
-    //       }else if(agreement !== "samePolarity"){
-    //            return "DISAGREEMENT"
-    //       }
-    //   };
+      //Check if there is an agreement
+      const agreement = (agreement) => {
+          if(agreement === "samePolarity") {
+                return "AGREEMENT"
+          }else if(agreement !== "samePolarity"){
+               return "DISAGREEMENT"
+          }
+      };
       
-    //   const subjectivity = (subjectivity) => {
-    //       if(subjectivity === "OBJECTIVE") {
-    //           return 'Has subjectivity marks'
-    //       }else if(subjectivity === "SUBJECTIVE"){
-    //           return 'Has a subjective marks'
-    //       }else {
-    //           return 'Article has neither OBJECTIVE nor SUBJECTIVE marks'
-    //       }
-    //   }
+      const subjectivity = (subjectivity) => {
+          if(subjectivity === "OBJECTIVE") {
+              return 'Has subjectivity marks'
+          }else if(subjectivity === "SUBJECTIVE"){
+              return 'Has a subjective marks'
+          }else {
+              return 'Article has neither OBJECTIVE nor SUBJECTIVE marks'
+          }
+      }
 
-    //   const confidence = (confidence) => {
-    //       if(confidence >= 1){
-    //           return score.confidence;
-    //       }else{
-    //           return 'NO CONFIDENCE'
-    //       }
-    //   }
+      const confidence = (confidence) => {
+          if(confidence >= 1){
+              return score.confidence;
+          }else{
+              return 'NO CONFIDENCE'
+          }
+      }
       
-    //   const irony = (irony) => {
-    //       if(!irony){
-    //             return "NONIRONIC"
-    //       }else{
-    //           return "IRONIC"
-    //       }
-    //   }
+      const irony = (irony) => {
+          if(!irony){
+                return "NONIRONIC"
+          }else{
+              return "IRONIC"
+          }
+      }
  
 
 export { handleSubmit }
