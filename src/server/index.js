@@ -1,21 +1,32 @@
+let projectData = {};
+
+//Require dotenv define in the .env file
+
+// if(process.env.NODE_ENV !== 'production'){
+//           require('dotenv').config()
+// }
+
 const dotenv = require('dotenv');
-const express = require('express');
-const bodyParser = require('body-parser');
-const axios = require('axios');
-
-
+const API_KEY = process.env.API_KEY;
 dotenv.config()
 
-const router = express.Router();
+//Set the url in a variable name baseURL const baseURL = 'https://api.meaningcloud.com/sentiment-2.1?key=';
+
+const baseUrl = 'https://api.meaningcloud.com/sentiment-2.1?key=';
+
+//Require Express and body-parser
+const express = require('express');
 
 //Create an instance of the app
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+const bodyParser = require('body-parser');
+app.use(bodyParser.json()); 
+// app.use(express.json()); 
 
 //Middleware 
 const cors = require('cors');
+const { default: fetch } = require('node-fetch');
 app.use(cors());
 
 //Initialize the static folder 
@@ -29,53 +40,40 @@ app.get('/',  function (req, res) {
           res.sendFile('dist/index.html')          
 });
 
-// `/sentiment-2.1?key=${process.env.API_KEY}&lang=en&txt=<text>&model=<model>`
-app.post('/sentiment', function(req, res) {
-          const API = 'https://api.meaningcloud.com/sentiment-2.1?';
-          const API_KEY = process.env.API_KEY;
-          const en = req.body.en
-          const text = req.body.text
-          const newsArticles = req.body.newsArticles,
-          const params = en ? `&lang=${en}` : `&txt=${text}` `&model=${newsArticles}`,
-          const response = await axios.post(encodeURI(API + API_KEY + params), {})
-
-          try {
-                    const result = JSON.stringify(response.data.sentiment)
-          } catch (err) {
-                    console.log('Request failed:', err)
-          }
+app.get('/all', (req, res) => {
+          res.send(projectData)
 })
 
+app.post('/analyse', async (req, res) => {
+          console.log(req.body)
+          const response = await fetch( `${baseUrl}${API_KEY}&lang=auto&txt=${req.body.text}&model=general&url=${req.body}`);
 
+          try {
 
-// app.get('/apiK', (req, res) => {
-//           res.send(projectData)
-// }); 
+                    const data = await response.json();
+        
+                    projectData = data;
+                    res.send(projectData)
+                    res.json()
+                    // res.send(data)  
+          } catch (error) {
+                    console.log(error.message)
+          }
+})  
+       
 
-// app.post('/analyseData', (req, res) => {
-//           console.log(req.body)
-//           newData = {
-//                     model: req.body.model,
-//                     text: req.body.text,
-//                     inip: req.body.inip,
-//                     endp: req.body.endp,
-//                     score_tag: req.body.score_tag,
-//                     agreement: req.body.agreement,
-//                     subjectivity: req.body.subjectivity,
-//                     confidence: req.body.confidence,
-//                     irony: req.body.irony,
-//           }
-//           console.log(newData)
-//           projectData = newData;
-//            res.send(projectData)
+//            axios({
+//                     url: url,
+//                     responseType: 'text'  
+//           }).then(data => data.text(url))
+//           .catch(err => data.status(400).json('Error: ' + err));    
+
 // })
-
-  
-
-app.listen(port, () => {  
+ 
+app.listen(port, () => {     
           console.log(`Server listening on port: ${port}`); 
-});                  
+});     
 
-app.get('/test', function (req, res) {
-          res.send(mockAPIResponse)
-});
+// app.get('/test', function (req, res) {
+//           res.send(mockAPIResponse)
+// });
