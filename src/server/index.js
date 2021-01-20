@@ -21,7 +21,7 @@ const express = require('express');
 const app = express();
 
 const bodyParser = require('body-parser');
-app.use(bodyParser.json()); 
+app.use(bodyParser.text()); 
 // app.use(express.json()); 
 
 //Middleware 
@@ -36,8 +36,8 @@ app.use(express.static('dist'));
 const port = process.env.PORT || 8001;
 
 
-app.get('/',  function (req, res) {    
-          res.sendFile('dist/index.html')          
+app.get('*',  function (req, res) {    
+          res.sendFile(path.join(__dirname + 'dist/index.html'))          
 });
 
 app.get('/all', (req, res) => {
@@ -50,7 +50,7 @@ app.post('/analyse', async (req, res) => {
 
           try {
 
-                    const data = await response.json();
+                    const data = await response.text();
         
                     projectData = data;
                     res.send(projectData)
