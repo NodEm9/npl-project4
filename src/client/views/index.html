@@ -9,31 +9,39 @@
     <div class="container">    
           <header>
                     <div class="appName">Evaluating News Articles With Natural Language Processing</div>
-                    <div>
+                    <div id="panel">
                         <span class="errorMsg"></span>
                     </div>
-          </header>   
+
+                    <!-- onsubmit="return Client.handleSubmit(event)" -->
+          </header>         
           <main>
             <section>
               <div>
-                <form class="" onsubmit="return Client.handleSubmit(event)">
+                <form class="">
+                  <div>
+                    <label for="inputText">Enter Text</label>
+                  </div>
+                  <div>
+                    <textarea name="text" id="text" cols="80" rows="10"></textarea>
+                  </div>
                   <div>
                   <label for="inputText"> Enter Url:</label>
                 </div>
-                  <textarea name="input" id="url" data-text cols="80" rows="15"></textarea>
-                    <input type="submit" id="generate" class="button" value="Submit"> 
-                    <!-- onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">    -->
+                  <input type="url" name="input" id="url" >
+                  <div>
+                      <input type="submit" id="generate" class="button" value="Submit">
+                  </div>  
                 </form>
               </div>
             </section>
             <section>
               <article>
                 <div class="row">
-                  <div class="column">
-                   <p class="text"> </p>
-                   <p class="score"> </p>
+                  <div class="column"> 
+                   <p class="score_tag"> </p>
                    <p class="agreement"></p>
-                   <p class="subjective"></p>
+                   <p class="subjectivity"></p>
                    <p class="confidence"></p>
                    <p class="irony"></p>
                   </div>
