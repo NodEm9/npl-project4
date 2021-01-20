@@ -1,6 +1,7 @@
 import { handleSubmit } from './js/formHandler';
 import { isValidUrl } from './js/urlIsValid'; 
-import { displayMessage } from './js/alert-message-service';
+import { displayMessage } from './js/alert-message-service';    
+import { checkInput } from './js/inputAreValid';
 
 import './styles/base.scss';  
         
@@ -15,5 +16,6 @@ if (module.hot) {
 export { 
           handleSubmit,                                     
           isValidUrl,
-          displayMessage    
+          displayMessage,
+          checkInput   
         };         
