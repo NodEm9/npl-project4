@@ -2,16 +2,16 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserJSPlugin = require("terser-webpack-plugin");
 
 
 
 
 module.exports = {
-          mode: 'production',
+          mode: 'production',  
           entry:  "./src/client/index.js",
  module: {
    rules: [
-
           {
              test: /\.m?js$/,
              exclude: /(node_modules|bower_components)/,
@@ -35,6 +35,17 @@ module.exports = {
         ]
        
       },
+      optimization: {
+        minimize: true,
+        minimizer: [
+        new TerserJSPlugin({
+       test: /\.js(\?.*)?$/i,
+       parallel: true,
+    }), 
+    // new OptimizeCSSAssetsPlugin({ cache: true })
+ ],
+    runtimeChunk: 'single',
+      },
       plugins: [
                 new CleanWebpackPlugin({
                 // Simulate the removal of files
@@ -52,6 +63,7 @@ module.exports = {
           }),
        ],
        output: {
+                    filename: '[name].[contenthash].bundle.js',
                     libraryTarget: 'var',
                     library: 'Client'
        }
