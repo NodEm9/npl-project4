@@ -18,4 +18,4 @@ export {
           isValidUrl,
           displayMessage,
           checkInput   
-        };         
+ };         
