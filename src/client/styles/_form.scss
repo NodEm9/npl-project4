@@ -4,8 +4,8 @@ main {
           border: none;
           padding: 20px 15px 15px 20px;
           background: $primary-color;
-          color: #fff;
-          font-weight: 400;
+         //  color: #fff;
+         //  font-weight: 500;
           grid-area:  span 2 ;
 
         section {
@@ -19,7 +19,7 @@ main {
           }
           .column {
             float: left;
-            width: 29%;
+            // width: 29%;
         }
         .column, span {
            align-items: flex-start;
