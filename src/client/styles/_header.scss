@@ -1,14 +1,21 @@
 
 header {
+          width: 600px;
           font-size: large;
+          background: grey;
           margin: 0 auto;
           font-weight: 700;
-          font: bold;
           margin-bottom: 1em;
           margin-top: 1em;
+          padding: 10px 10xp 10px 10px;
           grid-area: span 1;
+          text-align: center;
 
+}
+.main-header{
+       background: none;
 }
 #panel, .errorMsg{
           color: #ffffff;
+          text-align: center;
    }
