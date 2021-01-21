@@ -1,9 +1,11 @@
-const { isValidUrl } = require("./urlIsValid");
+import { checkInput } from "./inputAreValid";
+
+import { isValidUrl } from "./urlIsValid";
 
 function displayMessage(msgText, msgType) {
 const html = document.querySelector('#panel');
 
-const panel = document.createElement('div');
+const panel = document.createElement('div'); 
 panel.setAttribute('class', 'msgBox');
 html.appendChild(panel);
 
@@ -18,10 +20,10 @@ btn.onclick = function() {
           displayMessage('URL is valid' `${isValidUrl}`);
         };
 
-if (msgType !== isValidUrl) {
+if (msgType !== isValidUrl || msgType !== checkInput) {
   // msg.style.backgroundImage = 'url(icons/warning.png)';
   panel.style.backgroundColor = 'red';
-} else if (msgType === isValidUrl) {
+} else if (msgType === isValidUrl || msgType === checkInput) {
   // msg.style.backgroundImage = 'url(icons/chat.png)';
   panel.style.backgroundColor = 'blue';
 } else {
