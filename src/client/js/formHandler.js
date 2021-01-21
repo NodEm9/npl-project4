@@ -1,94 +1,50 @@
 import { isValidUrl } from "./urlIsValid";
 import { displayMessage } from "./alert-message-service"
+// import { checkInput } from "./inputAreValid";
 
 document.getElementById('generate').addEventListener('click', handleSubmit);  
 
 
  function handleSubmit(event) {
-        event.preventDefault();
-
-        const url = document.getElementById('url').value;
+        event.preventDefault()
+        
+            const url = document.getElementById('url').value;
+            let inputText = url;
     
-    if(!isValidUrl(url)) {
-                document.querySelector('.errorMsg').innerHTML = displayMessage('Invalid Url: please insert a valid Url');
-            console.log('Invalid Url')   
-    }else{
-     fetch('http://localhost:8001/analyse/', {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: {
-            // 'Content-Type': 'application/json', 
-            'Content-Type': 'text/plain'
-        }, 
-        body: url,// the Content-Type matches the body
-         
+    if(isValidUrl(inputText)) {
+
+            document.querySelector('.errorMsg').innerHTML = displayMessage('Url is valid');
+            console.log('Url/text are valid ');
+  
+        fetch('http://localhost:8001/analyse/', {
+            method: 'POST',
+            credentials: 'same-origin', 
+            headers: {
+                // 'Content-Type': 'application/json', 
+                'Content-Type': 'text/plain'
+            }, 
+            body: url,// the Content-Type matches the body
+            
      }).then(res => res.text())
     .then(text => {
             console.log(text)
-            document.querySelector('.score_tag').innerHTML = `score_tag: ${score_tag(text.score_tag)}`;
-            document.querySelector('.subjectivity').innerHTML = `subjectivity: ${subjectivity(text.subjectivity)}`;
+            document.querySelector('.score_tag').innerHTML = `score_tag: ${score_tag(text.score_tag)}`
             document.querySelector('.agreement').innerHTML = `agreement: ${agreement(text.agreement)}`
+            document.querySelector('.subjectivity').innerHTML = `subjectivity: ${subjectivity(text.subjectivity)}`
             document.querySelector('.confidence').innerHTML = `confidence: ${confidence(text.confidence)}`
             document.querySelector('.irony').innerHTML = `irony: ${irony(text.irony)}`
+
           return text
-        })
-    
-        document.querySelector('.errorMsg').innerHTML = displayMessage('URL is valid');
-        console.log('URL is valid')
+        })     
+  }else{
+            document.querySelector('.errorMsg').innerHTML = displayMessage('URL/Text are not readable. Enter a valid text/url');
+            console.log('URL/Text are not readable. Enter a valid text/url')
+
   }
 
-        fetch('http:/localhost:8001/all/')
-        .then(res => res.text())
-        .then(text => {
-            postData('', {score_tag: text['score_tag'], agreement: text['agreement'],
-            subjectivity: text['subjectivity'], confidence: text['confidence'], irony: text['irony'],
-          }).then(updateDisplay())
-          return text
-        })        
+}
+
     
-}
-  
-const postData = async (url ='', data = {}) => {
-        console.log(data)
-        const resp = await fetch(url, {  
-            method: 'POST',
-            credentials: 'same-origin',
-            headers: {
-                'Content-Type': 'text/plain',
-            }, 
-            body: data,// the Content-Type matches the body type
-           
-        })
-        try {
-            const newData = await resp.text()
-            // console.log(newData)
-            return newData
-        } catch (err) {
-            console.log(err.message)
-        }
-}
-
-const updateDisplay = async () => {
-    const response = await  fetch('/all/');
-    try {
-        const response = await response.text();
-
-        // const score_tag = document.querySelector('.score_tag');
-        // const agreement = document.querySelector('.agreement');
-        // const subjectivity = document.querySelector('.subjectivity');
-        // const confidence = document.querySelector('.confidence');
-        // const irony = document.querySelector('.irony');
-
-        // score_tag.textContent = allData.score_tag;
-        // agreement.textContent = allData.agreement;
-        // subjectivity.textContent = allData.subjectivity;
-        // confidence.textContent = allData.confidence;
-        // irony.textContent = allData.irony;
-
-    } catch (error) {
-        console.log(error.message);
-    }  
-}
 
       const score_tag = (score_tag) => {
         if (score_tag === "P+" || score_tag === "P") {
@@ -98,8 +54,8 @@ const updateDisplay = async () => {
         } else if (score_tag === "NEU") {
           return "Neutral";
         } else {
-          return "Non Sentimental";
-        }
+          return "NON";
+        }    
       };
 
       //Check if there is an agreement
@@ -111,26 +67,27 @@ const updateDisplay = async () => {
           }
       };
       
-      const subjectivity = (subjectivity) => {
-          if(subjectivity === "OBJECTIVE") {
-              return 'Has subjectivity marks'
-          }else if(subjectivity === "SUBJECTIVE"){
-              return 'Has a subjective marks'
+      const subjectivity = (article) => {
+          if(article === "OBJECTIVE") {
+              return 'OBJECTIVE'
+          }else if(article === "SUBJECTIVE"){
+              return 'SUBJECTIVE'
           }else {
               return 'Article has neither OBJECTIVE nor SUBJECTIVE marks'
           }
+
       }
 
       const confidence = (confidence) => {
-          if(confidence >= 1){
-              return score.confidence;
+          if(confidence > 0){
+              return Math.random(confidence);
           }else{
               return 'NO CONFIDENCE'
           }
       }
       
-      const irony = (irony) => {
-          if(!irony){
+      const irony = (ironic) => {
+          if(!ironic){
                 return "NONIRONIC"
           }else{
               return "IRONIC"
@@ -138,5 +95,5 @@ const updateDisplay = async () => {
       }
  
 
-export { handleSubmit }
+export { handleSubmit, score_tag, agreement, subjectivity, confidence, irony }
     
