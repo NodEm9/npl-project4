@@ -38,23 +38,27 @@ app.use(express.static('dist'));
 const port = process.env.PORT || 8001;
 
 
+//Get route  dist/index.html path
 app.get('*',  function (req, res) {    
              res.sendFile('dist/index.html')          
 });
 
-app.get('/all', (req, res) => {
-             res.send(projectData)
-})
-   
+
+//Post route 
+//Call the API here and send the response 
 app.post('/analyse', async (req, res) => {
              console.log(req.body)
+
              const response = await fetch(`${baseUrl}${API_KEY}&of=json&lang=en&txt=${req.body.text}&model=general&url=${req.body.url}`);
 
           try {
+                    
              const data = await response.json();            
              res.send(data)
              res.json()
+
           } catch (error) {
+
              console.log(error.message)
           }
 })  
