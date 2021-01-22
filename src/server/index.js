@@ -2,7 +2,7 @@ let projectData = {};
 
 //Require dotenv define in the .env file
 
-const path = require('path')
+// const path = require('path')
 const dotenv = require('dotenv')
 dotenv.config()
 const API_KEY = process.env.API_KEY;
@@ -18,14 +18,18 @@ const express = require('express');
 //Create an instance of the app
 const app = express();
 
-//Require bodyparser
+//Dependencies
+// Require bodyparser
 const bodyParser = require('body-parser');
-app.use(bodyParser.text()); 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json()); 
 
 //Middleware 
 const cors = require('cors');
-const { default: fetch } = require('node-fetch');
 app.use(cors());
+
+const { default: fetch } = require('node-fetch');
+// const { urlencoded } = require('body-parser');
 
 //Initialize the static folder 
 app.use(express.static('dist'));
@@ -44,10 +48,10 @@ app.get('/all', (req, res) => {
    
 app.post('/analyse', async (req, res) => {
              console.log(req.body)
-             const response = await fetch(`${baseUrl}${API_KEY}&lang=en&txt=${req.body.text}&model=general&url=${req.body.url}`);
+             const response = await fetch(`${baseUrl}${API_KEY}&of=json&lang=en&txt=${req.body.text}&model=general&url=${req.body.url}`);
 
           try {
-             const data = await response.text();            
+             const data = await response.json();            
              res.send(data)
              res.json()
           } catch (error) {
