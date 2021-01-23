@@ -4,4 +4,4 @@ function filterByTerm(outputArr, searchTerm) {
           });
         }
 
-        export {filterByTerm};
+        export {filterByTerm};  
