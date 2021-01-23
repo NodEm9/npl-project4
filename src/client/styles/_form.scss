@@ -35,7 +35,7 @@ section {
          margin: 0 auto;         
         
   p {
-         border: 1px solid;
+         border: transparent;
          padding: 1em; 
          border-left: 12px solid black;
          background: orange;
@@ -89,7 +89,7 @@ input:valid {
 }
   
 .form-section_main {
-         border: 1px solid;
+         border: transparent;
          width: 38em;
          margin: 0 auto;
          margin-left: 2em;
