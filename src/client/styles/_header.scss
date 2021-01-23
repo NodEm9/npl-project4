@@ -1,21 +1,28 @@
-
 header {
-          width: 600px;
-          font-size: large;
-          background: grey;
-          margin: 0 auto;
-          font-weight: 700;
-          margin-bottom: 1em;
-          margin-top: 1em;
-          padding: 10px 10xp 10px 10px;
-          grid-area: span 1;
-          text-align: center;
+       min-width: 100vw;
+       font-size: large;
+       font-weight: 500;
+       font-size: 1.5em;
+       margin-bottom: 1.5em;
+       padding: 0.7em;
+       grid-area: span 1;
+       text-align: center;
 
 }
+
 .main-header{
-       background: none;
+       z-index: 2;
+       background-color: #000000;
+       color: white;
+       margin-top: 0;
 }
-#panel, .errorMsg{
-          color: #ffffff;
-          text-align: center;
-   }
+
+.msgBox {
+       width: 18em;
+       text-align: center;
+       font-size: 1em;
+       align-items: center;
+       justify-content: center;
+       margin: 0 auto;
+       padding: 0.5em;
+}
