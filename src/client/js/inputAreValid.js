@@ -1,17 +1,17 @@
 
- function checkInput(str) {
-          console.log("::: Running checkForName :::", str);
-          let validInput;
-          validInput = /^(?:(?:A-Z, a-z?):\(?:txt?a-z)\!/
-          if(validInput.test(str)) {
-                    return true
-          }else {
-                    return   false
-          }
+ function checkInput(newText) {
+          console.log("::: Running checkForName :::", newText);
+      
+          let newInputs = 
+            [{ 
+                type: String, 
+                required: true   
+            }]
+        
           
-          // if(validInput.includes(str)) {
-          //     alert("Welcome, Captain!")
-          // }
+          if(newInputs.includes(newText.type)) {
+              return true
+         }
       }
       
       export { checkInput } 
