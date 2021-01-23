@@ -23,18 +23,6 @@ body {
               min-height: 100vh;
               grid-area: span 12;
 
-.button {
-              width: 7em;
-              height: 2.2em;
-              background: #1a1af1;
-              border: none;
-              color: #fff;
-              border-radius: 5px;
-              font-size: 1em;
-              grid-area: span 2;
-              align-items: center;
-              margin-top: 2em;
-  }
 }
 
 
@@ -93,7 +81,7 @@ section {
               grid-area: span 2;
 
   #url {
-              width: 38em;
+              width: 43em;
               grid-area:  span 2;
   } 
 }
@@ -125,8 +113,8 @@ section {
 p {
             border: 1px solid;
             padding: 10px; 
-            border-left: 12px solid black;
-            background: red;
+            border-left: 12px solid orangered;
+            background: #0000ff;
             transform-style: flat preserve-3d;
             position: relative;
             transition: linear 5s, 3s, linear yellow;
@@ -156,11 +144,12 @@ p {
 }
 
 input:invalid {
-            border: 2px solid red;
+            border: 3px solid red;
  }
 
  input:valid {
-            border: 2px solid green;
+            border: transparent;
+            box-shadow: 4px 4px 4px #808080;
  }
 
 footer {
