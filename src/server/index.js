@@ -11,7 +11,7 @@ const baseUrl = 'https://api.meaningcloud.com/sentiment-2.1?key=';
 const express = require('express');
 
 //Create an instance of the app
-const app = express();
+const app = express();  
 
 //Dependencies
 //Require bodyparser
@@ -24,7 +24,6 @@ const cors = require('cors');
 app.use(cors());
 
 const { default: fetch } = require('node-fetch');
-// const { urlencoded } = require('body-parser');
 
 //Initialize the static folder 
 app.use(express.static('dist'));
@@ -61,6 +60,6 @@ app.listen(port, () => {
           console.log(`Server listening on port: ${port}`); 
 });     
 
-app.get('/test', function (req, res) {
-          res.send(mockAPIResponse)
-});
+// app.get('/test', function (req, res) {
+//           res.send(mockAPIResponse)
+// });
