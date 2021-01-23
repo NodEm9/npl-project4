@@ -4,6 +4,8 @@
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Natural Language Processing</title>
+          
+          <script src="https://kit.fontawesome.com/f9f9d2cd10.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">          
@@ -24,7 +26,7 @@
               </div>
             </section>
             <section>
-              <div><p class="info-text">Your request results will be display below.</p></div>
+              <div><p class="info-text">Your request results will display below.</p></div>
               <article>
                   <div class="column"> 
                    <p class="score_tag"> </p>
@@ -42,6 +44,14 @@
       </footer> 
         </main>
   </div>
-          <script src="https://kit.fontawesome.com/f9f9d2cd10.js" crossorigin="anonymous"></script>
+          <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+           </script>
     </body>
 </html>
