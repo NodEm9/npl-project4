@@ -1,9 +1,10 @@
 footer {
-          width: auto;
+          min-width: 100vw;
           background: #606060;
           padding: 2em;
+          grid-area: span 4;
+          margin-top: none;
+          text-align: center;
+          margin-bottom: 0;
           
-}
-.page-footer {
-          margin: 0 auto;
 }
