@@ -48,7 +48,7 @@ document.getElementById('generate').addEventListener('click', handleSubmit);
 
     }) 
     }else{
-
+   
      //Display a an error message through the function displayMessage() imported from alert-meassage-service
      document.querySelector('.msgBox').innerHTML = 
      displayMessage('URL/Text is readOnly. Enter a valid url/text');
