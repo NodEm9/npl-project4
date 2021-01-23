@@ -1,5 +1,4 @@
-
- function checkInput(newText) {
+function checkInput(newText) {
           console.log("::: Running checkForName :::", newText);
       
           let newInputs = 
