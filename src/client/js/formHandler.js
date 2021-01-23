@@ -8,7 +8,7 @@ document.getElementById('generate').addEventListener('click', handleSubmit);
  
  function handleSubmit(event) {
 
-    //Prebent form for submitting before User click the button
+    //Prevent form for submitting before User click the button  
     event.preventDefault()
        
     //Grab the value of user input to do a Sentiment-Analysis on
@@ -23,7 +23,7 @@ document.getElementById('generate').addEventListener('click', handleSubmit);
         
     //fetch the API endpoint from the server and use POST method 
     //and corresponding header content-Type and Body to display the data
-    fetch('http://localhost:8001/analyse/', {
+    fetch('http://localhost:8001/analyse/', {  
       method: 'POST',
       credentials: 'same-origin', 
       headers: {
@@ -32,7 +32,7 @@ document.getElementById('generate').addEventListener('click', handleSubmit);
       body: JSON.stringify({ url: inputText}),// the Content-Type matches the body
              
      }).then(res => res.json())
-    .then(data => {
+    .then(data => {  
 
      console.log(data)
 
@@ -50,7 +50,7 @@ document.getElementById('generate').addEventListener('click', handleSubmit);
     }else{
 
      //Display a an error message through the function displayMessage() imported from alert-meassage-service
-     document.querySelector('.errorMsg').innerHTML = 
+     document.querySelector('.msgBox').innerHTML = 
      displayMessage('URL/Text is readOnly. Enter a valid url/text');
      console.log('URL/text is readOnly. Enter a valid url/text')
   }
