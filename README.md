@@ -1,8 +1,8 @@
 # NLP-project4
- Udacity Nano-Degress Natural Language Processing app
+                    Udacity Nano-Degress Natural Language Processing app.
+ 
 
-
-This web application is build on javascript, express, html and bundle with webpack.
+This web application is build on javascript, express, nodejs and bundle with webpack.
 
 The app uses express server with nodejs to make an http request call to fetch meaningCloud Sentiment Analysis API and runs only on local server.
 
