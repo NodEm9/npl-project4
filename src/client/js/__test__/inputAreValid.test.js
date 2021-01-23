@@ -1,15 +1,17 @@
-const { isValidUrl } = require("../urlIsValid");
+const { checkUrl } = require("../urlIsValid");
+
 
 describe ('check for url', () => {
-          test('input text should be a (link)', () => {
-              const inputText = [
+          test('it should check by  (link)', () => {
+              const checkUrlValidity = [
                             { id: 1, url: "https://www.url1.dev" },
-                            { id: 2, url: "www.linkmyapp.com"}
+                            { id: 2, url: "https://www.link2.com"}
               ];
 
-              const output = [{ id: 2, url: "www.linkmyapp.com" }]
+              const output = [{ id: 2, url: "https://www.link2.com" }]
 
-              expect(isValidUrl(inputText)).toContent(output)
+              expect(checkUrl(checkUrlValidity, 'link')).toEqual(output)
           })
 })
+
 
