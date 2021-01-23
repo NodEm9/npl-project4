@@ -12,9 +12,10 @@ section {
             
 /* Create three equal columns that floats next to each other */
    #url {
-         width: 38em; 
+         width: 43em; 
          height: 3%;
-         padding: 0.7em;
+         padding: 1.5em;
+         font-size: 0.8em;
          font-weight: bold;      
   }
 }
@@ -23,6 +24,8 @@ section {
          text-align: center;
          margin-top: 1em ;
          margin-bottom: 1em;
+         font-size: 1.5em;
+         font-weight: bold;
 }
 
 .column {
@@ -60,13 +63,19 @@ section {
   }
  }
 }
-  
+
 .button {
-         grid-area: span 12;
-         margin-bottom: 12em;
-         justify-content: center;
-         margin-top: 1em;
-         margin-bottom: 1px;
+       width: 7em;
+       background-color: #1a1af1;
+       padding: 0.5em;
+       border: none;
+       color: #fff;
+       border-radius: 5px;
+       font-size: 1.5em;
+       font-weight: bold;
+       grid-area: span 2;
+       text-align: center;
+       margin-top: 2em;
 }
 
 input:invalid {
@@ -74,12 +83,14 @@ input:invalid {
 }
 
 input:valid {
-         border: 2px solid green;
+         border: transparent;
+         box-shadow: 4px 4px 4px #808080;
+
 }
   
 .form-section_main {
          border: 1px solid;
-         width: 35em;
+         width: 38em;
          margin: 0 auto;
          margin-left: 2em;
          margin-right: 2em;
