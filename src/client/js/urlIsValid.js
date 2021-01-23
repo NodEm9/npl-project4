@@ -12,13 +12,20 @@ function isValidUrl(inputText)
         }
 }
 
-console.log(isValidUrl("http://www.example.com"));
-console.log(isValidUrl("https://www.example.com"));
-console.log(isValidUrl("www.example.com"));  
-console.log( 'This is a good article ');
+// console.log(isValidUrl("http://www.example.com"));
+// console.log(isValidUrl("https://www.example.com"));
+// console.log(isValidUrl("www.example.com"));  
+// console.log( 'This is a good article ');
+
+function checkUrl(outputArr, type) {
+  return outputArr.filter(function(arrayElement) {
+    return arrayElement.url.match(type);
+  });
+}
 
 
-export {isValidUrl }
+
+export {isValidUrl, checkUrl }
 
 
 
