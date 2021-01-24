@@ -47,12 +47,6 @@ section {
          transition: linear 5s, 3s, linear, lightgray;
 }
 
-.row:after {
-         content: "";
-         display: table;
-         clear: both;
-}
-
 .model {
          align-items: right;
          margin-left: 3em;
@@ -68,23 +62,24 @@ section {
        width: 7em;
        background-color: #1a1af1;
        padding: 0.5em;
-       border: none;
+       border: transparent;
        color: #fff;
        border-radius: 5px;
        font-size: 1.5em;
        font-weight: bold;
        grid-area: span 2;
        text-align: center;
-       margin-top: 2em;
+       margin-top: 2em; 
+       box-shadow: 4px 4px 4px #808080;
+
 }
 
 input:invalid {
-         border: 2px solid red;
+         border: 1px solid red;
 }
 
 input:valid {
          border: transparent;
-         box-shadow: 4px 4px 4px #808080;
 
 }
   
