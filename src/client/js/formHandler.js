@@ -17,7 +17,7 @@ document.getElementById('generate').addEventListener('click', handleSubmit);
 
     //Check if User input a valid input type as specified 
     //and display an error message yo prompt User enter a vaild input type
-    if(isValidUrl(inputText)) {
+    if(Client.isValidUrl(inputText)) {
 
     console.log('Ur is valid ');
         
@@ -46,12 +46,11 @@ document.getElementById('generate').addEventListener('click', handleSubmit);
      //return the data recieved
      return data  
 
-    }) 
+    })    
     }else{
    
      //Display a an error message through the function displayMessage() imported from alert-meassage-service
-     document.querySelector('.msgBox').innerHTML = 
-     displayMessage('URL/Text is readOnly. Enter a valid url/text');
+     document.querySelector('.msgBox').innerHTML = displayMessage('URL/Text is readOnly. Enter a valid url/text');
      console.log('URL/text is readOnly. Enter a valid url/text')
   }
 };
