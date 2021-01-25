@@ -44,7 +44,7 @@ document.getElementById('generate').addEventListener('click', handleSubmit);
      document.querySelector('.irony').innerHTML = `irony: ${data.irony}`
 
      //return the data recieved
-     return data  
+     return data   
 
     })    
     }else{
