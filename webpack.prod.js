@@ -4,7 +4,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserJSPlugin = require("terser-webpack-plugin");
 const WorkboxPlugin = require('workbox-webpack-plugin');
-// const {GenerateSW} = require('workbox-webpack-plugin');
 
 
 
@@ -69,8 +68,6 @@ module.exports = {
     runtimeChunk: 'single',
       },
       plugins: [
-                new WorkboxPlugin.GenerateSW(),
-                // new GenerateSW(),
                 new CleanWebpackPlugin({
                 // Simulate the removal of files
                 dry: true,
@@ -84,8 +81,11 @@ module.exports = {
                 new HtmlWebpackPlugin({
                   template: './src/client/views/index.html',
                   filename: './index.html'
-          }),
-          
+              }),
+              new WorkboxPlugin.GenerateSW({
+                  clientsClaim: true,
+                  skipWaiting: true,
+          })
        ],
        output: {
                     filename: '[name].[contenthash].bundle.js',
