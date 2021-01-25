@@ -37,7 +37,7 @@ follow all step in the file to set up the server and end points
 
 To get the API you will have to register an account with meaningCloud website before you can use their api, 
 once you register a user account you will be provided an api key which you can use to access their resources
-You can find how you call the api in the server/index.js file
+You can find how you call the api in the server/index.js file. Get meaningCloud API [here](/https://www.meaningcloud.com/)
 
 ### Style The App
 
