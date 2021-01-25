@@ -1,7 +1,7 @@
 ## Udacity Nano-Degree programme NLP-project4
 
-### This an AI application, a Natural Language Processing app, 
-### it analyses the sentiment in a News/blog article
+**This an AI application, a Natural Language Processing app, 
+it analyses the sentiment in a News/blog article**
  
  
 ### This app runs only on local server, It uses the meaningCloud API to analyse news article. 
@@ -9,7 +9,10 @@
  The app is built to enable users conduct sentiment analysis news articles found online 
 
 
-To enable you build this app successfully, there are certain requirements which you shuld already be familiar with if you are a dveloper
+``To enable you build this app successfully, 
+there are certain requirements which you should
+already be familiar with if you are a dveloper
+``
 
 ### You will need to Install the following packages to **Get Started**.
 
