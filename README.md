@@ -1,24 +1,54 @@
-# Udacity Nano-Degree programme NLP-project4
-                                                Udacity Nano-Degress Natural Language Processing app
+## Udacity Nano-Degree programme NLP-project4
+
+### This an AI application, a Natural Language Processing app, 
+### it analyses the sentiment in a News/blog article
  
+ 
+### This app runs only on local server, It uses the meaningCloud API to analyse news article. 
+ 
+ The app is built to enable users conduct sentiment analysis news articles found online 
 
 
-The app uses express server with nodejs to make an http request call to fetch meaningCloud Sentiment Analysis API and runs only on local server.
+To enable you build this app successfully, there are certain requirements which you shuld already be familiar with if you are a dveloper
 
-To enable you understand and build this app successfully, there are requirements of packages and libraries required. The major packages and libraries are already stated above to minimize time.
+### You will need to Install the following packages to **Get Started**.
 
-First you will need to have Node installd in your local machine, which come with npm packages.
-Once you have node installed, you can choose an IDE "Integrated Development Environment" convinient to you.
-Most developers prefer to use Visual Studio Code. Now rou can run npm init -y to download npm packages for your app.
+* NodeJs *To be installed on your local machine*
+* Express
+* Cors
+* Webpack 
 
-The express install via npm is to enable us config the server that will run on our local machine, the project has two enpoints one for the GET route which will get the request from the server using a specified path and a POST route the post the request recieved and when fetched it will be able to display results to User as the end consumer of the info/data from the server.
+### Installing Node
 
-Javascript was use the configure all functionalities of client-side of the app and as well as the server side.
+After you have NodeJs installd on your local machine which come with npm packages, if you don't have Node installed already, you can download and install [here](/https://nodejs.org/en/download/).
 
-Sass/SCSS was use for styling the app although there was not more special SCSS syntax implemented but 
-SCSS partial file was used to ensure styling code can be splitted into small chuncks of files and be easily integrated in the the main.scss file with is in the project nase as base.scss. Now this is a very good way to that make debugging easier and with it you just need to import only the base,scss into the index.js file with is the entry point to app in webpack.
+Next, you can choose an **IDE** `Integrated Development Environment` convinient to you.  Most developers prefer to use Visual Studio Code.
+Now you can create a folder and run mpm init -y to install npm packages that will get you started or you can fork this repository/clone it to on the command line
+
+### Setting up the server
+
+Here we will create a server folder and inside a and index.js or server.js file. We are going to write our server code here. 
+Now use npm to install the following express and cors **Cross Origin Resourse sharing**  ``npm install express cors -save--dev``
+
+The in server file you should require express and create an instance of the app just as in the _server/index.js file_ 
+follow all step in the file to set up the server and end points
+
+### Getting the API
+
+To get the API you will have to register an account with meaningCloud website before you can use their api, 
+once you register a user account you will be provided an api key which you can use to access their resources
+You can find how you call the api in the server/index.js file
+
+### Style The App
+
+**Sass/SCSS** was use for styling the app although there was not more special SCSS syntax implemented but 
+SCSS ``Partial`` file was used to ensure styling code can be ``splitted into small chuncks of files`` for 
+easy integration in the main.scss file which is in this project name as base.scss. Now this is a very good way to make debugging 
+easier and with it you just need to import only the base.scss into the index.js file which is the main entry point to app.
 
 Lastly, to enhance performance, webpack bundler was used to bundle output file, in this way we can be sure 
-only the updated files are created in each runtime build and for version control nothing will change until the updated file are pushed into gitHub. As for performace, it help to minimize our assests and other files with hash/contenthash putting then into a single file path, which can slow the application on the server thereby taking too long to get output, that the User do not want to experience.
+only the updated files are created in each runtime build and for version control nothing will change until the updated file are pushed into gitHub. 
+As for performace, it help to minimize our assests and other files with hash/contenthash putting then into a single file path, 
+which _if not configured so can slow the application on the server thereby taking too long to get output_, that the User do not want to experience.
 
 
