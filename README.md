@@ -26,11 +26,11 @@ already be familiar with if you are a dveloper
 After you have NodeJs installd on your local machine which come with npm packages, if you don't have Node installed already, you can download and install [here](/https://nodejs.org/en/download/).
 
 Next, you can choose an **IDE** `Integrated Development Environment` convinient to you.  Most developers prefer to use Visual Studio Code.
-Now you can create a folder and run mpm init -y to install npm packages that will get you started or you can fork this repository/clone it to on the command line
+Now you can create a folder and run npm init -y to install npm packages that will get you started or you can fork this repository/clone it to on the command line
 
 ### Setting up the server
 
-Here we will create a server folder and inside a and index.js or server.js file. We are going to write our server code here. 
+Here we will create a server folder and inside an index.js or server.js file. We are going to write our server code here. 
 Now use npm to install the following express and cors **Cross Origin Resourse sharing**  ``npm install express cors -save--dev``
 
 The in server file you should require express and create an instance of the app just as in the _server/index.js file_ 
