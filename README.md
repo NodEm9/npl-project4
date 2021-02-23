@@ -48,6 +48,7 @@ You can find how you call the api in the server/index.js file. Get meaningCloud 
 SCSS ``Partial`` file was used to ensure styling code can be ``splitted into small chuncks of files`` for 
 easy integration in the main.scss file which is in this project name as base.scss. Now this is a very good way to make debugging 
 easier and with it you just need to import only the base.scss into the index.js file which is the main entry point to app.
+To learn SASS checkout website [here][https://sass-lang.com/]
 
 Lastly, to enhance performance, webpack bundler was used to bundle output file, in this way we can be sure 
 only the updated files are created in each runtime build and for version control nothing will change until the updated file are pushed into gitHub. 
