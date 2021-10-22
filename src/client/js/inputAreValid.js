@@ -1,16 +1,14 @@
 function checkInput(newText) {
-          console.log("::: Running checkForName :::", newText);
+    console.log("::: Running checkForName :::", newText);
+
+    let newInputs = 
+      [{   
+          type: String, 
+          required: true   
+      }]
+       if(newInputs.includes(newText.type)) {
+        return true
+   }
+}
       
-          let newInputs = 
-            [{ 
-                type: String, 
-                required: true   
-            }]
-        
-          
-          if(newInputs.includes(newText.type)) {
-              return true
-         }
-      }
-      
-      export { checkInput } 
+export { checkInput } 

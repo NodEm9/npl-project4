@@ -1,24 +1,16 @@
 header {
-       min-width: 100vw;
-       font-size: large;
+       width: 100vw;
+       font-size: .3em;
        font-weight: 500;
-       font-size: 1.5em;
-       margin-bottom: 1.5em;
-       padding: 0.7em;
-       grid-area: span 1;
        text-align: center;
-
-}
-
-.main-header{   
-       z-index: 2;
-       background-color: #000000;
+       background: #000000;
        color: white;
-       margin-top: 0;
-}
+       padding: 0.3em;
+       margin: 0;
 
 .msgBox {
        width: 18em;
        text-align: center;
        margin: 0 auto;
+   }
 }

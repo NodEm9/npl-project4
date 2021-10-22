@@ -5,59 +5,47 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Natural Language Processing</title>
 
-          <script src="https://kit.fontawesome.com/f9f9d2cd10.js" crossorigin="anonymous"></script>
+          <script defer src="https://kit.fontawesome.com/f9f9d2cd10.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">          
-          <main> 
-              <header class="main-header">
-               <div class="appName">Evaluating News Articles. Natural Language Processing AI</div>
-               <div id="panel">
-            </div>
-             </header>
+  <nav>
+    <a href="./index.html" id="brand-name">Edonuyi</a>
+  </nav>  
+  <header class="main-header">
+    <h1 class="appName">Evaluating News Articles. Natural Language Processing AI</h1>
+    <div id="panel"></div>
+  </header>
+    <div class="container">        
+          <main>  
             <section class="form-section">
               <div class="form-section_main">
-                <form class="">
-                  <input type="url" name="input" id="url" placeholder="Enter Url" >
-                  <div>
-                      <input type="submit" id="generate" class="button" value="Submit">
-                  </div>  
+                <form class="news-search">
+                  <div id="tilte"><em>Sentiment Analysis</em></div>
+                      <input type="url" name="input" id="url" class="url" placeholder="Enter Url" >
+                      <input type="submit" id="generate" class="button" value="Analyse article">
                 </form>
               </div>
             </section>
             <section>
-              <div><p class="info-text">Your request results will display below.</p></div>
+              <p class="info-text"><em>Submit your query and discover the power of AI.</em></p>
               <article>
-                  <div class="column"> 
-                   <p class="score_tag"> </p>
+                <div class="column"> 
+                   <p class="score_tag"></p>
                    <p class="agreement"></p>
                    <p class="subjectivity"></p>
                    <p class="confidence"></p>
                    <p class="irony"></p>
-                  </div>
+                </div>
               </article> 
         </section> 
-        <footer>  
-          <div class="page-footer">
-            MY Footer here
-          </div>
-      </footer> 
-        </main>
+      </main> 
   </div>
-          <script>
-            // // Check that service workers are supported
-            // if ('serviceWorker' in navigator) {
-            //     // Use the window load event to keep the page load performant
-            //     window.addEventListener('load', () => {
-            //         navigator.serviceWorker.register('/service-worker.js');
-            //     });
-            // }
-
-            if ('serviceWorker' in navigator) {
-                   window.addEventListener('load', function() {
-                      navigator.serviceWorker.register('/service-worker.js');
-              });
-            }
+      <script>
+        if ('serviceWorker' in navigator) {
+               window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/service-worker.js');
+          });
+        }
            </script>
     </body>
 </html>

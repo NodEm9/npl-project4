@@ -6,9 +6,6 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 
-
-
-
 module.exports = {
           mode: 'production',  
           entry:  "./src/client/index.js",
@@ -18,17 +15,13 @@ module.exports = {
              test: /\.m?js$/,
              exclude: /(node_modules|bower_components)/,
              use: {
-                    loader: 'babel-loader',
-                    options: {  
-                                
-                    plugins: ['@babel/plugin-transform-runtime']
-                  }
+                loader: 'babel-loader',
           }     
          },
-         {
-          test: /\.(png|jpe?g|gif)$/i,
-          use: [
-            {
+         { 
+             test: /\.(png|jpe?g|gif)$/i,
+             use: [
+               {
               loader: 'file-loader',
             }
           ]
@@ -45,12 +38,12 @@ module.exports = {
           ]
         },
           {
-                      test: /\.scss$/i,
-                      use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+              test: /\.scss$/i,
+              use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
           },
           {
-                    test: /\.html$/i,
-                    loader: 'html-loader',
+              test: /\.html$/i,
+              loader: 'html-loader',
           },
          
         ]
@@ -63,7 +56,6 @@ module.exports = {
        test: /\.js(\?.*)?$/i,
        parallel: true,
     }), 
-    // new OptimizeCSSAssetsPlugin({ cache: true })
  ],
     runtimeChunk: 'single',
       },
@@ -88,9 +80,12 @@ module.exports = {
           })
        ],
        output: {
-                    filename: '[name].[contenthash].bundle.js',
-                    libraryTarget: 'var',
-                    library: 'Client'
+          path: path.resolve(__dirname, 'dist'),
+          filename: '[name].[contenthash].bundle.js',
+          library: {
+          name: 'Client',
+          type: 'var',
+          }
        }
 }
    

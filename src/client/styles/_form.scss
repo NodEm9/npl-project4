@@ -1,97 +1,139 @@
-main {
+.form-section {
+       padding: 16px;
+       margin-top: 35px;    
+       
+  .news-search {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       border-radius: 15px;
+       width: 100%;
+       background-blend-mode: luminosity;
 
-          display: grid;
-          min-height: 100vh;
-          min-width: 100vw;
-          margin: 0 auto;
-          border: none;
-          grid-area:  span 12 ;
+       .title {
+              position: relative;
+              z-index: 5;
+       }
 
-section {
-          grid-area: span 12;
-            
-/* Create three equal columns that floats next to each other */
-   #url {
-         width: 43em; 
-         height: 3%;
-         padding: 1.5em;
-         font-size: 0.8em;
-         font-weight: bold;      
-  }
-}
-
-.info-text {
-         text-align: center;
-         margin-top: 1em ;
-         margin-bottom: 1em;
-         font-size: 1.5em;
+       input{
+        flex-grow: 5;
+         padding: 10px;
          font-weight: bold;
-}
+         margin: 10px;
 
-.column {
-         width: 25em; 
-         padding: 2em;
-         margin-top: 1em;
-         margin: 0 auto;         
-        
-  p {
-         border: transparent;
-         padding: 1em; 
-         border-left: 12px solid black;
-         background: orange;
-         font-size: 22px; 
-         font-weight: bold;
-         z-index: 1;
-         box-shadow: 6px 6px 6px #808080;
-         position: relative;
-         transition: linear 5s, 3s, linear, lightgray;
-}
+        /* Create three equal columns that floats next to each other */
+        #url {
+              position: relative;
+              flex-grow: 18;
+              border-radius: 5px;
+              padding: 1.5em;
+              font-size: 0.8em;
+              font-weight: bold;
+              border-left: 3px solid red;
+              border-right: 3px solid red;
+         }
 
-.model {
-         align-items: right;
-         margin-left: 3em;
-}
+         &:nth-child(3n) {
+              position: relative;
+              width: 12.1em;
+              background:  rgba(69, 81, 252, 0.8);
+              border: transparent;
+              color: #000;
+              border-radius: 25px;
+              font-size: 0.8em;
+              padding: 1.5em;
+              font-weight: bold;
+              text-align: center;
+              z-index: 2;
+              outline: none;
+              box-shadow: 0px 15px 0px rgba(219, 203, 203, 0.1);
+           }
+       }
 
-.lang {
-         width: 1px;
-  }
+       .url {
+              border: 1px solid #000;
+       }
+
+       
+   
+   .button:hover {
+       background: rgba(9, 248, 176, 0.5);
+       cursor: pointer;
+   }
  }
+
+
+
+       input:invalid {
+              border: 1px solid red;
+       }
+
+       input:valid {
+              border: transparent;
+       }
 }
 
-.button {
-       width: 7em;
-       background-color: #1a1af1;
-       padding: 0.5em;
-       border: transparent;
-       color: #fff;
-       border-radius: 5px;
-       font-size: 1.5em;
-       font-weight: bold;
-       grid-area: span 2;
-       text-align: center;
-       margin-top: 2em; 
-       box-shadow: 4px 4px 4px #808080;
+@media screen and (min-width: 40em) {
+   .form-section {
+       position: relative;
+       padding: 16px;    
+              
+       &_main {
+              border: transparent;
+              justify-content: space-between;
+              margin: 50px;
+              border-radius: 15px;
+              box-shadow: 0px 0px 25px rgba(0,0,0,0.1);
+              border-top-right-radius: 35px;
+              border-bottom-right-radius: 35px;
+           
+       .news-search {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: center;
+              border-radius: 15px;
+              width: 100%;
+              background-blend-mode: luminosity;
 
-}
+          em {
+              margin: 40px;
+              padding: 5px;
+          }
 
-input:invalid {
-         border: 1px solid red;
-}
+          input {
+              display: flex;
+          /* Create three equal columns that floats next to each other */
+          #url {
+                flex-grow: 6;
+                height: 3em;
+                border-radius: 5px;
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+                padding: 0.2em;
+                margin-right: 0px;
+                font-size: 14px;
+                font-weight: bold;
+                border: 1px solid #808080;      
+                margin-top: 2em; 
 
-input:valid {
-         border: transparent;
+                &::placeholder {
+                  content: '';
+                  padding: 5px;
+                }
+         }
+        }
+       }
+   }                 
+       input:invalid {
+              border: 1px solid red;
+       }
+       
+       input:valid {
+              border: transparent;
+       } 
 
+  }
 }
   
-.form-section_main {
-         border: transparent;
-         width: 38em;
-         margin: 0 auto;
-         margin-left: 2em;
-         margin-right: 2em;
-         font-size: 0.8em;
-         padding: 50px;
-         background: #d3d3d3;
-         box-shadow: 6px 6px 6px #808080;
-   
-}
